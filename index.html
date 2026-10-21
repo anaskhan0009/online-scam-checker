@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Scam Checker — Analyze Suspicious Job Offers & Messages Free | Dinal Studios</title>
+<meta name="description" content="Online scam checker: paste a suspicious job offer or message for instant red-flag analysis and a clear verdict. Save labeled scans with notes — free.">
+<meta name="keywords" content="scam-checker, job-scam, fake-job-offer, online-scams, fraud-detection, phishing, work-from-home-scams, cyber-security, educational-tool, javascript">
+<meta name="author" content="Dinal Studios">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://anaskhan0009.github.io/online-scam-checker/">
+<meta property="og:title" content="Online Scam Checker — Analyze Suspicious Job Offers & Messages Free | Dinal Studios">
+<meta property="og:description" content="Online scam checker: paste a suspicious job offer or message for instant red-flag analysis and a clear verdict. Save labeled scans with notes — free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://anaskhan0009.github.io/online-scam-checker/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Online Scam Checker — Analyze Suspicious Job Offers & Messages Free | Dinal Studios">
+<meta name="twitter:description" content="Online scam checker: paste a suspicious job offer or message for instant red-flag analysis and a clear verdict. Save labeled scans with notes — free.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Online Scam Checker — Red-Flag Analyzer for Suspicious Jobs & Messages",
+  "url": "https://anaskhan0009.github.io/online-scam-checker/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (Web browser)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Dinal Studios"
+  },
+  "description": "Online scam checker: paste a suspicious job offer or message for instant red-flag analysis and a clear verdict. Save labeled scans with notes — free."
+}
+</script>
+<style>
+  * { box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+  body { margin: 0; background: #0a0f1a; color: #dbe4f3; }
+  header { background: radial-gradient(1000px 400px at 50% -80px, #14532d 0%, #0a0f1a 60%); padding: 46px 16px 30px; text-align: center; border-bottom: 1px solid #1d2b45; }
+  header h1 { margin: 0 0 8px; font-size: 32px; letter-spacing: .5px; }
+  header h1 span { color: #22c55e; }
+  header p { margin: 0; color: #93a5c4; font-size: 15px; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 22px 14px 46px; }
+  .card { background: #111a2c; border: 1px solid #1f2c47; border-radius: 14px; padding: 22px; margin-bottom: 20px; }
+  .card h2 { margin: 0 0 6px; font-size: 20px; color: #fff; }
+  .card .sub { color: #93a5c4; font-size: 13.5px; margin: 0 0 16px; line-height: 1.55; }
+  .btn { background: #22c55e; color: #06280f; border: none; padding: 11px 20px; border-radius: 9px; cursor: pointer; font-weight: 700; font-size: 14px; }
+  .btn.dark { background: #1f2c47; color: #dbe4f3; }
+  .btn.ghost { background: transparent; border: 1px solid #2a3a5c; color: #dbe4f3; }
+  .btn.danger { background: #7f1d1d; color: #fecaca; }
+  .btn.sm { padding: 7px 13px; font-size: 13px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .hidden { display: none !important; }
+  input[type=text], input[type=email], input[type=password], input[type=number], textarea, select { width: 100%; background: #0a0f1a; border: 1px solid #22304f; border-radius: 9px; color: #dbe4f3; padding: 11px 12px; font-size: 14px; margin: 0 0 10px; font-family: inherit; }
+  textarea { min-height: 100px; resize: vertical; line-height: 1.55; }
+  label.fl { display: block; font-size: 13px; color: #93a5c4; margin: 0 0 5px; font-weight: 600; }
+  .tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+  .tab { flex: 1; text-align: center; padding: 9px; border-radius: 9px; background: #0a0f1a; border: 1px solid #22304f; cursor: pointer; font-weight: 700; font-size: 14px; color: #93a5c4; }
+  .tab.on { background: #14532d; color: #bbf7d0; border-color: #22c55e; }
+  .note { font-size: 12.5px; color: #fde68a; background: #1c1917; border: 1px solid #a16207; border-radius: 9px; padding: 10px 12px; line-height: 1.55; margin-top: 14px; }
+  .msg { font-size: 13.5px; margin: 10px 0 0; min-height: 18px; }
+  .msg.err { color: #fca5a5; }
+  .msg.ok { color: #86efac; }
+  .bar { height: 14px; background: #22304f; border-radius: 8px; overflow: hidden; margin: 12px 0 8px; }
+  .bar i { display: block; height: 100%; width: 0%; transition: width .45s, background .45s; }
+  .scorebig { font-size: 44px; font-weight: 800; color: #fff; line-height: 1; }
+  .grade { font-size: 15px; font-weight: 700; }
+  .item { display: flex; gap: 12px; background: #0a0f1a; border: 1px solid #1f2c47; border-radius: 10px; padding: 13px 14px; margin-bottom: 9px; cursor: pointer; align-items: flex-start; }
+  .item:hover { border-color: #2a3a5c; }
+  .item input { width: 20px; height: 20px; accent-color: #22c55e; margin-top: 2px; cursor: pointer; flex-shrink: 0; }
+  .item .t { font-size: 14.5px; color: #fff; font-weight: 600; }
+  .item .d { font-size: 12.5px; color: #93a5c4; margin-top: 2px; line-height: 1.5; }
+  .item .pts { margin-left: auto; flex-shrink: 0; background: #1f2c47; color: #86efac; border-radius: 6px; padding: 2px 8px; font-size: 11.5px; font-weight: 700; }
+  .item.crit .pts { background: #7f1d1d; color: #fecaca; }
+  .item.done { border-color: #14532d; opacity: .78; }
+  .item.done .t { text-decoration: line-through; }
+  .group { margin-bottom: 20px; }
+  .group h3 { color: #22c55e; font-size: 15.5px; margin: 0 0 10px; text-transform: uppercase; letter-spacing: .6px; }
+  table.cmp { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-bottom: 6px; }
+  table.cmp th, table.cmp td { border: 1px solid #22304f; padding: 9px 10px; text-align: left; vertical-align: top; line-height: 1.5; }
+  table.cmp th { background: #0a0f1a; color: #fff; }
+  table.cmp td:first-child { color: #93a5c4; font-weight: 600; white-space: nowrap; }
+  .pill { display: inline-block; padding: 2px 9px; border-radius: 99px; font-size: 11.5px; font-weight: 700; }
+  .pill.g { background: #14532d; color: #bbf7d0; }
+  .pill.y { background: #713f12; color: #fde68a; }
+  .pill.r { background: #7f1d1d; color: #fecaca; }
+  .saved { background: #0a0f1a; border: 1px solid #1f2c47; border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; }
+  .saved h4 { margin: 0 0 4px; color: #fff; font-size: 15px; }
+  .saved .meta { font-size: 12px; color: #5b6c8f; margin-bottom: 6px; }
+  .saved .body { font-size: 13.5px; color: #aebbd6; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
+  .saved .acts { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .flag { border: 1px solid #7f1d1d; border-left: 4px solid #ef4444; background: #0a0f1a; border-radius: 9px; padding: 11px 13px; margin-bottom: 8px; font-size: 13.5px; line-height: 1.55; }
+  .flag b { color: #fca5a5; }
+  .flag.warn { border-color: #a16207; border-left-color: #eab308; }
+  .flag.warn b { color: #fef08a; }
+  .flag.good { border-color: #14532d; border-left-color: #22c55e; }
+  .flag.good b { color: #86efac; }
+  .q { margin-bottom: 16px; }
+  .q p { margin: 0 0 8px; font-weight: 600; color: #fff; font-size: 14.5px; }
+  .opt { display: block; background: #0a0f1a; border: 1px solid #1f2c47; border-radius: 9px; padding: 10px 13px; margin-bottom: 7px; cursor: pointer; font-size: 13.5px; }
+  .opt:hover { border-color: #2a3a5c; }
+  .opt input { accent-color: #22c55e; margin-right: 8px; }
+  .opt.sel { border-color: #22c55e; background: #0f2417; }
+  ul.learn { margin: 10px 0 0; padding-left: 18px; color: #aebbd6; font-size: 13.5px; line-height: 1.65; }
+  ul.learn li { margin-bottom: 6px; }
+  .allgood { background: #0f2417; border: 1px solid #14532d; border-radius: 10px; padding: 14px 16px; color: #bbf7d0; font-size: 14px; line-height: 1.55; }
+  .empty { color: #5b6c8f; font-size: 13.5px; border: 1px dashed #22304f; border-radius: 10px; padding: 16px; text-align: center; }
+  footer { text-align: center; color: #5b6c8f; font-size: 12.5px; padding: 0 14px 34px; }
+  footer a { color: #22c55e; text-decoration: none; }
+
+</style>
+</head>
+<body>
+<header>
+  <h1>🚩 Online Scam <span>Checker</span></h1>
+  <p>Paste the suspicious job offer, message or 'opportunity' — get an instant red-flag verdict before it costs you</p>
+</header>
+<div class="wrap">
+  <div class="card" id="dsAuthCard">
+    <h2>👤 Your Account <span style="font-size:12.5px;color:#93a5c4;font-weight:400">(optional — unlocks saving &amp; history)</span></h2>
+    <p class="sub">The tool below works fully as a guest, no account needed. Create a free local account to save, edit and export your own records.</p>
+    <div id="dsAuthOut">
+      <div class="tabs"><div class="tab on" id="dsTabLogin">Log in</div><div class="tab" id="dsTabSignup">Sign up</div></div>
+      <form id="dsLoginForm">
+        <label class="fl" for="dsLoginEmail">Email</label>
+        <input type="email" id="dsLoginEmail" required autocomplete="email" placeholder="you@example.com">
+        <label class="fl" for="dsLoginPass">Password</label>
+        <input type="password" id="dsLoginPass" required autocomplete="current-password" placeholder="Your password">
+        <div class="row">
+          <button class="btn" type="submit">Log in</button>
+          <button class="btn ghost" type="button" id="dsGuestBtn">Continue as guest</button>
+        </div>
+      </form>
+      <form id="dsSignupForm" class="hidden">
+        <label class="fl" for="dsSuName">Your name</label>
+        <input type="text" id="dsSuName" required autocomplete="name" placeholder="e.g. Ali Raza">
+        <label class="fl" for="dsSuEmail">Email</label>
+        <input type="email" id="dsSuEmail" required autocomplete="email" placeholder="you@example.com">
+        <label class="fl" for="dsSuPass">Password (minimum 6 characters)</label>
+        <input type="password" id="dsSuPass" required autocomplete="new-password" placeholder="Choose a unique password">
+        <div class="row"><button class="btn" type="submit">Create free account</button></div>
+      </form>
+    </div>
+    <div id="dsAuthIn" class="hidden">
+      <p style="margin:0 0 12px">Signed in as <b id="dsUserName" style="color:#fff"></b> <span id="dsUserEmail" style="color:#93a5c4"></span></p>
+      <div class="row">
+        <button class="btn sm" id="dsExportBtn" type="button">⬇ Export my records (JSON)</button>
+        <label class="btn sm dark" style="cursor:pointer;margin:0">⬆ Import records<input type="file" id="dsImportFile" accept=".json,application/json" class="hidden"></label>
+        <button class="btn sm ghost" id="dsLogoutBtn" type="button">Log out</button>
+        <button class="btn sm danger" id="dsDeleteBtn" type="button">Delete account</button>
+      </div>
+    </div>
+    <div class="msg" id="dsAuthMsg"></div>
+    <div class="note">🔒 <b>Local account</b> — your data stays on this device only. This is not a cloud account; use a unique password you don't use elsewhere.</div>
+  </div>
+
+  <div class="card">
+    <h2>🔍 Analyze a Message</h2>
+    <p class="sub">Paste the full text of the job offer, DM, email or "business opportunity". The analysis runs 100% in your browser — nothing is uploaded anywhere. It detects the persuasion patterns scammers reuse everywhere: urgency, upfront fees, payment in gift cards or crypto, absurd pay, and requests for your banking details.</p>
+    <label class="fl" for="scamText">Suspicious text</label>
+    <textarea id="scamText" style="min-height:150px" placeholder="Paste the message here… e.g. 'Congratulations! You have been selected for a data entry job paying $600/week. No interview needed. To start, pay a small training fee…'"></textarea>
+    <div class="row">
+      <button class="btn" id="analyzeBtn" type="button">🚩 Analyze text</button>
+      <button class="btn dark" id="sampleBtn" type="button">Try a sample scam</button>
+      <button class="btn ghost" id="clearBtn" type="button">Clear</button>
+    </div>
+    <div id="scamResult" style="margin-top:18px"></div>
+    <div id="scamSaveBox" class="hidden" style="margin-top:16px">
+      <label class="fl" for="scanLabel">Label for this scan</label>
+      <input type="text" id="scanLabel" placeholder="e.g. 'Data entry job' DM on Telegram" maxlength="100">
+      <label class="fl" for="scanNotes">Your notes</label>
+      <textarea id="scanNotes" placeholder="Where it came from, what you did (blocked/reported/ignored), who sent it…"></textarea>
+      <div class="row"><button class="btn" id="saveScanBtn" type="button">💾 Save this scan</button></div>
+      <div class="msg" id="scanMsg"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>💾 My Saved Scans</h2>
+    <p class="sub">Your scan history, private to your account on this device. Keeping labeled scans builds your own pattern library — the third time a "new opportunity" matches an old scam, you'll spot it instantly. Edit updates a scan's label and notes; export/import from your account card.</p>
+    <div id="dsRecordList"></div>
+  </div>
+
+  <div class="card">
+    <h2>🎓 The Anatomy Every Scam Shares</h2>
+    <ul class="learn">
+      <li><b>They pay you? No — you pay them.</b> Legitimate employers never charge training, registration or equipment fees, and never pay by cheque you must "partially refund".</li>
+      <li><b>Urgency is the lockpick.</b> "Act now, only 2 spots" exists to stop you doing the one thing that defeats every scam: pausing to verify.</li>
+      <li><b>Off-platform = off the record.</b> Moving from a job site to WhatsApp/Telegram removes reporting, moderation and evidence in one step.</li>
+      <li><b>Verify backwards.</b> Contact the real company through its official website — never through the phone number or link inside the suspicious message.</li>
+    </ul>
+  </div>
+
+</div>
+
+<section id="ds-more-tools" style="max-width:900px;margin:32px auto 0;padding:18px 20px;border-top:1px solid #1e293b;text-align:center;font-family:inherit;">
+  <h2 style="font-size:1rem;margin:0 0 10px;color:#94a3b8;">More free tools by Dinal Studios</h2>
+  <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;">
+      <li><a href="https://anaskhan0009.github.io/phishing-awareness-trainer/">Phishing Awareness Training Game</a></li>
+      <li><a href="https://anaskhan0009.github.io/url-safety-checker/">Free URL Safety Checker</a></li>
+      <li><a href="https://anaskhan0009.github.io/email-header-analyzer/">Email Header Analyzer — Spot Spoofed Mail</a></li>
+      <li><a href="https://anaskhan0009.github.io/crypto-wallet-security-guide/">Crypto Wallet Security Guide</a></li>
+      <li><a href="https://anaskhan0009.github.io/identity-theft-protection-guide/">Identity Theft Protection Guide & Task Tracker</a></li>
+      <li><a href="https://anaskhan0009.github.io/cyber-security-quiz/">Cyber Security Quiz — Test Your Defenses</a></li>
+  </ul>
+</section>
+<footer>Built by <a href="https://github.com/anaskhan0009">Dinal Studios</a> · Online Scam Checker — if it pressures you to hurry and pay, it's the payment that's the product</footer>
+
+<script>
+"use strict";
+var APP_ID = 'online-scam-checker';
+// ==DS-CORE-START==
+/* Dinal Studios shared local account + record store.
+   Accounts exist ONLY in this browser's localStorage. Passwords are stored
+   solely as salted SHA-256 hashes (WebCrypto) — never in plaintext. */
+var DS_LS = {
+  get: function (k, d) { try { var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+  del: function (k) { try { localStorage.removeItem(k); } catch (e) {} }
+};
+function ds_uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 10); }
+function ds_sha256(str) {
+  return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function (buf) {
+    return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+  });
+}
+function ds_esc(s) {
+  return String(s === null || s === undefined ? '' : s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function ds_fmtDate(ts) {
+  var d = new Date(ts);
+  return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+var DS_Auth = {
+  usersKey: 'ds_users_v1',
+  sessionKey: 'ds_session_v1',
+  users: function () { return DS_LS.get(this.usersKey, []); },
+  _saveUsers: function (u) { DS_LS.set(this.usersKey, u); },
+  _pub: function (u) { return { id: u.id, name: u.name, email: u.email }; },
+  signup: function (name, email, password) {
+    var self = this;
+    name = (name || '').trim();
+    email = (email || '').trim().toLowerCase();
+    if (!name) return Promise.reject(new Error('Please enter your name.'));
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return Promise.reject(new Error('Please enter a valid email address.'));
+    if (!password || password.length < 6) return Promise.reject(new Error('Password must be at least 6 characters.'));
+    var users = this.users(), i;
+    for (i = 0; i < users.length; i++) {
+      if (users[i].email === email) return Promise.reject(new Error('An account with this email already exists on this device. Please log in instead.'));
+    }
+    var salt = ds_uid() + ds_uid();
+    return ds_sha256(salt + '::' + password).then(function (hash) {
+      var user = { id: ds_uid(), name: name, email: email, salt: salt, hash: hash, createdAt: Date.now() };
+      users.push(user);
+      self._saveUsers(users);
+      DS_LS.set(self.sessionKey, user.id);
+      return self._pub(user);
+    });
+  },
+  login: function (email, password) {
+    var self = this;
+    email = (email || '').trim().toLowerCase();
+    var users = this.users(), user = null, i;
+    for (i = 0; i < users.length; i++) { if (users[i].email === email) user = users[i]; }
+    if (!user) return Promise.reject(new Error('No account with this email exists on this device. Please sign up first.'));
+    return ds_sha256(user.salt + '::' + password).then(function (hash) {
+      if (hash !== user.hash) throw new Error('Incorrect password. Please try again.');
+      DS_LS.set(self.sessionKey, user.id);
+      return self._pub(user);
+    });
+  },
+  logout: function () { DS_LS.del(this.sessionKey); },
+  current: function () {
+    var id = DS_LS.get(this.sessionKey, null), users = this.users(), i;
+    if (!id) return null;
+    for (i = 0; i < users.length; i++) { if (users[i].id === id) return this._pub(users[i]); }
+    return null;
+  },
+  deleteAccount: function () {
+    var id = DS_LS.get(this.sessionKey, null);
+    if (!id) return false;
+    this._saveUsers(this.users().filter(function (u) { return u.id !== id; }));
+    DS_LS.del('ds_data_' + APP_ID + '_' + id);
+    this.logout();
+    return true;
+  }
+};
+var DS_Store = {
+  _key: function () {
+    var u = DS_Auth.current();
+    return u ? ('ds_data_' + APP_ID + '_' + u.id) : null;
+  },
+  all: function () { var k = this._key(); return k ? DS_LS.get(k, []) : []; },
+  _save: function (records) { var k = this._key(); if (k) DS_LS.set(k, records); },
+  create: function (record) {
+    if (!this._key()) throw new Error('Please log in to save records.');
+    var records = this.all();
+    record.id = ds_uid();
+    record.createdAt = Date.now();
+    record.updatedAt = Date.now();
+    records.unshift(record);
+    this._save(records);
+    return record;
+  },
+  get: function (id) {
+    var r = this.all(), i;
+    for (i = 0; i < r.length; i++) { if (r[i].id === id) return r[i]; }
+    return null;
+  },
+  update: function (id, patch) {
+    var records = this.all(), i, k;
+    for (i = 0; i < records.length; i++) { if (records[i].id === id) break; }
+    if (i === records.length) return null;
+    for (k in patch) { records[i][k] = patch[k]; }
+    records[i].updatedAt = Date.now();
+    this._save(records);
+    return records[i];
+  },
+  remove: function (id) {
+    this._save(this.all().filter(function (r) { return r.id !== id; }));
+  },
+  exportJSON: function () { return JSON.stringify(this.all(), null, 2); },
+  importJSON: function (text) {
+    var arr = JSON.parse(text);
+    if (!Array.isArray(arr)) throw new Error('That file does not contain a valid records list.');
+    this._save(arr);
+    return arr.length;
+  }
+};
+function dsInitAuth(onChange) {
+  var out = document.getElementById('dsAuthOut'), inn = document.getElementById('dsAuthIn');
+  if (!out || !inn) return;
+  var msg = document.getElementById('dsAuthMsg');
+  function say(text, ok) { if (msg) { msg.textContent = text || ''; msg.className = 'msg ' + (ok ? 'ok' : 'err'); } }
+  function render() {
+    var u = DS_Auth.current();
+    if (u) {
+      out.classList.add('hidden'); inn.classList.remove('hidden');
+      document.getElementById('dsUserName').textContent = u.name;
+      document.getElementById('dsUserEmail').textContent = '(' + u.email + ')';
+    } else {
+      out.classList.remove('hidden'); inn.classList.add('hidden');
+    }
+    if (onChange) onChange(u);
+  }
+  var tabL = document.getElementById('dsTabLogin'), tabS = document.getElementById('dsTabSignup');
+  var fL = document.getElementById('dsLoginForm'), fS = document.getElementById('dsSignupForm');
+  function showTab(signup) {
+    tabL.classList.toggle('on', !signup); tabS.classList.toggle('on', signup);
+    fL.classList.toggle('hidden', signup); fS.classList.toggle('hidden', !signup);
+    say('');
+  }
+  tabL.addEventListener('click', function () { showTab(false); });
+  tabS.addEventListener('click', function () { showTab(true); });
+  fL.addEventListener('submit', function (e) {
+    e.preventDefault();
+    DS_Auth.login(document.getElementById('dsLoginEmail').value, document.getElementById('dsLoginPass').value)
+      .then(function () { say('Welcome back! You are logged in.', true); render(); })
+      .catch(function (err) { say(err.message, false); });
+  });
+  fS.addEventListener('submit', function (e) {
+    e.preventDefault();
+    DS_Auth.signup(document.getElementById('dsSuName').value, document.getElementById('dsSuEmail').value, document.getElementById('dsSuPass').value)
+      .then(function () { say('Account created on this device — you are logged in.', true); render(); })
+      .catch(function (err) { say(err.message, false); });
+  });
+  var guest = document.getElementById('dsGuestBtn');
+  if (guest) guest.addEventListener('click', function () { say('Continuing as guest — the tool works fully. Log in any time to save records.', true); });
+  document.getElementById('dsLogoutBtn').addEventListener('click', function () {
+    DS_Auth.logout();
+    say('Logged out. Your saved records stay on this device for your next login.', true);
+    render();
+  });
+  document.getElementById('dsDeleteBtn').addEventListener('click', function () {
+    if (window.confirm('Delete your local account and ALL its saved records from this device? This cannot be undone.')) {
+      DS_Auth.deleteAccount();
+      say('Account and its records were deleted from this device.', true);
+      render();
+    }
+  });
+  document.getElementById('dsExportBtn').addEventListener('click', function () {
+    var blob = new Blob([DS_Store.exportJSON()], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = APP_ID + '-records.json';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 600);
+  });
+  document.getElementById('dsImportFile').addEventListener('change', function (e) {
+    var f = e.target.files[0];
+    if (!f) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      try { var n = DS_Store.importJSON(String(reader.result)); say('Imported ' + n + ' record(s).', true); render(); }
+      catch (err) { say('Import failed: ' + err.message, false); }
+    };
+    reader.readAsText(f);
+    e.target.value = '';
+  });
+  render();
+}
+// ==DS-CORE-END==
+
+/* ---- Online Scam Checker: heuristic red-flag analysis + saved scan history ---- */
+var SCAM_RULES = [
+  { id: 'upfront-fee', pts: 18, sev: '', label: 'Upfront fee requested',
+    test: /(training|registration|processing|activation|starter|equipment|software|visa)\s*(kit\s*)?fee|pay\s+(a\s+)?(small\s+)?(fee|deposit|charge)\s*(first|to\s+(start|begin|activate|join))|send\s+(a\s+)?(fee|deposit|payment)\s*(first|before)/i,
+    why: 'Real employers pay YOU. Any "job" that starts with you paying — for training, kits, activation or processing — is the fee itself being the product.' },
+  { id: 'gift-card', pts: 18, sev: '', label: 'Payment via gift cards demanded',
+    test: /gift\s*cards?/i,
+    why: 'Gift cards are untraceable cash. No legitimate business, employer or authority accepts or demands payment in gift cards. Ever.' },
+  { id: 'bank-details', pts: 16, sev: '', label: 'Asks for banking details, OTP or ID documents early',
+    test: /(send|share|provide|confirm)\b[^.]{0,40}(bank\s+details|account\s+number|account\s+details|otp|one[-\s]?time\s+(code|password)|password|ssn|social\s+security|passport\s+(copy|scan)|id\s+card\s+copy)/i,
+    why: 'Bank details, one-time codes and ID scans are requested to drain accounts or steal identities — never as a first step in a chat.' },
+  { id: 'cheque', pts: 16, sev: '', label: 'Cheque / deposit-and-forward pattern',
+    test: /(deposit|mobile\s+deposit|cash)\b[^.]{0,30}(cheque|check)|cheque[^.]{0,30}(deposit|refund|send\s+back|forward)/i,
+    why: 'The fake-cheque pattern: a (worthless) cheque "clears", you forward real money, the cheque bounces, you owe the bank. A classic.' },
+  { id: 'crypto-pay', pts: 14, sev: 'warn', label: 'Crypto payment involved',
+    test: /bitcoin|\bbtc\b|crypto(currency)?|usdt|binance|wallet\s+address|gift\s*card\s*or/i,
+    why: 'Crypto payments are irreversible. Scammers route victims there precisely because no bank can claw the money back.' },
+  { id: 'too-good', pts: 14, sev: 'warn', label: 'Pay is too good to be true',
+    test: /(earn|make|get\s+paid|salary\s+of|paying|pays)\b[^.]{0,40}\$\s?\d{3,}|\$\s?\d{3,}\s*(per|\/)\s*(week|day|hour)|\$\s?\d[\d,]*\s*(weekly|daily|per\s+week)/i,
+    why: 'Four-figure weekly pay for unskilled remote work doesn\'t exist in any real labor market. The number is bait, sized to switch off skepticism.' },
+  { id: 'won', pts: 12, sev: 'warn', label: '"You won" / selected out of nowhere',
+    test: /you\s+(have\s+)?(won|been\s+selected|been\s+chosen)|congratulations[^.]{0,40}(won|selected|prize|lottery)|claim\s+your\s+(prize|reward|bonus)/i,
+    why: 'You cannot win a lottery you never entered, nor be "selected" for a job you never applied to. Winning is the hook; the fee is the catch.' },
+  { id: 'off-platform', pts: 12, sev: 'warn', label: 'Pushes you off-platform (WhatsApp / Telegram)',
+    test: /(move|switch|continue|chat|talk|contact|message)\b[^.]{0,30}(whatsapp|telegram|signal)|(whatsapp|telegram)\b[^.]{0,30}(to\s+start|for\s+details|to\s+apply|immediately)/i,
+    why: 'Moving to an unmoderated chat removes the platform\'s reporting, scam filters and evidence trail — that\'s the point of the move.' },
+  { id: 'urgency', pts: 12, sev: 'warn', label: 'Manufactured urgency',
+    test: /urgent|act\s+now|right\s+away|immediately|within\s+24\s+hours|expires?\s+(today|soon)|last\s+chance|only\s+\d+\s+(spots?|positions?|slots?)\s+left|hurry/i,
+    why: 'Pressure is a tool: a rushed victim doesn\'t verify. Any offer that can\'t survive a night of thinking was designed not to.' },
+  { id: 'no-interview', pts: 10, sev: 'warn', label: 'No interview / no experience needed',
+    test: /no\s+interview|no\s+experience\s+(needed|required|necessary)|no\s+resume|hired\s+immediately|start\s+today\s*,?\s*no/i,
+    why: 'Real hiring filters people — that\'s what hiring is. "Everyone qualifies instantly" means there is no real selection process at all; the victim IS the product.' },
+  { id: 'easy-money', pts: 8, sev: 'warn', label: '"Easy money" framing',
+    test: /easy\s+money|work\s+from\s+your\s+phone|no\s+skills?\s+(needed|required)|simple\s+task[s]?\s*,?\s*(big|high)\s+pay|earn\s+from\s+home\s+easily/i,
+    why: 'Real work is described by its tasks and requirements. Scams describe only the money and how effortless it is.' },
+  { id: 'freemail', pts: 6, sev: 'warn', label: 'Sender uses a free email address',
+    test: /@(gmail|yahoo|hotmail|outlook|protonmail)\.(com|net)/i,
+    why: 'Companies recruit from company domains. A "HR manager" writing from a free email account deserves deep suspicion (this flag alone proves nothing — combined with others, it matters).' }
+];
+function scamAnalyze(text) {
+  text = String(text || '');
+  var flags = [], score = 0;
+  SCAM_RULES.forEach(function (rule) {
+    if (rule.test.test(text)) { flags.push({ id: rule.id, label: rule.label, points: rule.pts, sev: rule.sev, why: rule.why }); score += rule.pts; }
+  });
+  if (score > 98) score = 98;
+  var verdict = score >= 50 ? 'LIKELY SCAM' : score >= 25 ? 'SUSPICIOUS — high caution' : score >= 8 ? 'SOME RED FLAGS' : 'NO KNOWN RED FLAGS FOUND';
+  return { score: score, verdict: verdict, flags: flags };
+}
+
+var SAMPLE_SCAM = 'Congratulations! You have been selected for a remote data entry job paying $850 per week. No interview and no experience needed — start today! To activate your position, pay a small $45 training fee using gift cards, then move to WhatsApp to talk to your manager immediately. URGENT: only 2 spots left, act now!';
+var dsLastScan = null;
+var dsScanEditingId = null;
+
+function dsScamRenderRecords() {
+  var list = document.getElementById('dsRecordList');
+  if (!list) return;
+  if (!DS_Auth.current()) {
+    list.innerHTML = '<div class="empty">You are browsing as a guest. Log in above to save scans with labels and notes.</div>';
+    return;
+  }
+  var records = DS_Store.all();
+  if (!records.length) {
+    list.innerHTML = '<div class="empty">No saved scans yet. Analyze a message above and save it as your first entry.</div>';
+    return;
+  }
+  list.innerHTML = records.map(function (r) {
+    var sev = r.score >= 50 ? 'r' : r.score >= 25 ? 'y' : 'g';
+    var excerpt = (r.text || '').length > 220 ? r.text.slice(0, 220) + '…' : (r.text || '');
+    return '<div class="saved"><h4><span class="pill ' + sev + '">' + ds_esc(r.verdict) + ' · ' + r.score + '/98</span> ' + ds_esc(r.title) + '</h4>' +
+      '<div class="meta">Analyzed ' + ds_fmtDate(r.createdAt) + (r.updatedAt > r.createdAt ? ' · edited ' + ds_fmtDate(r.updatedAt) : '') + '</div>' +
+      '<div class="body">"' + ds_esc(excerpt) + '"' + (r.body ? '\n\n📝 ' + ds_esc(r.body) : '') + '</div>' +
+      '<div class="acts"><button class="btn sm dark" data-act="edit" data-id="' + r.id + '">✏️ Edit label & notes</button>' +
+      '<button class="btn sm danger" data-act="del" data-id="' + r.id + '">🗑️ Delete</button></div></div>';
+  }).join('');
+}
+
+if (typeof window !== 'undefined' && typeof document !== 'undefined' && document.getElementById) {
+  var resultBox = document.getElementById('scamResult');
+  document.getElementById('analyzeBtn').addEventListener('click', function () {
+    var text = document.getElementById('scamText').value.trim();
+    if (text.length < 20) {
+      resultBox.innerHTML = '<div class="flag warn"><b>Too short:</b> paste the full message — scammers hide the hooks in the details.</div>';
+      document.getElementById('scamSaveBox').classList.add('hidden');
+      return;
+    }
+    var res = scamAnalyze(text);
+    dsLastScan = { text: text, score: res.score, verdict: res.verdict };
+    var head = res.score >= 50
+      ? '<div class="flag"><b>🚩 ' + res.verdict + ' — risk score ' + res.score + '/98.</b> Do not pay anything, do not share documents, and do not move to a private chat. Report and block.</div>'
+      : res.score >= 25
+      ? '<div class="flag warn"><b>⚠️ ' + res.verdict + ' — risk score ' + res.score + '/98.</b> Verify the company independently through its official website before doing anything else.</div>'
+      : res.score >= 8
+      ? '<div class="flag warn"><b>' + res.verdict + ' — risk score ' + res.score + '/98.</b> Not damning alone, but verify the sender through official channels before proceeding.</div>'
+      : '<div class="flag good"><b>✓ ' + res.verdict + ' — risk score ' + res.score + '/98.</b> No known scam patterns matched. That\'s reassurance, not a guarantee: still verify the sender and never pay upfront fees.</div>';
+    var flagsHtml = res.flags.length ? '<h3 style="color:#fff;font-size:15px;margin:16px 0 8px">Red flags found (' + res.flags.length + ')</h3>' + res.flags.map(function (f) {
+      return '<div class="flag' + (f.sev === 'warn' ? ' warn' : '') + '"><b>' + ds_esc(f.label) + ' (+' + f.points + ')</b> — ' + ds_esc(f.why) + '</div>';
+    }).join('') : '';
+    resultBox.innerHTML = head + flagsHtml;
+    document.getElementById('scamSaveBox').classList.remove('hidden');
+  });
+  document.getElementById('sampleBtn').addEventListener('click', function () {
+    document.getElementById('scamText').value = SAMPLE_SCAM;
+    document.getElementById('analyzeBtn').click();
+  });
+  document.getElementById('clearBtn').addEventListener('click', function () {
+    document.getElementById('scamText').value = '';
+    resultBox.innerHTML = '';
+    document.getElementById('scamSaveBox').classList.add('hidden');
+    dsLastScan = null;
+  });
+  document.getElementById('saveScanBtn').addEventListener('click', function () {
+    var msg = document.getElementById('scanMsg');
+    if (!DS_Auth.current()) { msg.textContent = 'Log in above first — scans are saved per account.'; msg.className = 'msg err'; return; }
+    if (!dsLastScan) { msg.textContent = 'Analyze a message first, then save it.'; msg.className = 'msg err'; return; }
+    var label = document.getElementById('scanLabel').value.trim() || ('Scan — ' + new Date().toLocaleDateString());
+    var notes = document.getElementById('scanNotes').value.trim();
+    if (dsScanEditingId) {
+      DS_Store.update(dsScanEditingId, { title: label, body: notes });
+      msg.textContent = 'Scan updated.';
+      dsScanEditingId = null;
+      document.getElementById('saveScanBtn').textContent = '💾 Save this scan';
+    } else {
+      DS_Store.create({ kind: 'scan', title: label, body: notes, text: dsLastScan.text, score: dsLastScan.score, verdict: dsLastScan.verdict });
+      msg.textContent = 'Scan saved to your history below.';
+    }
+    msg.className = 'msg ok';
+    dsScamRenderRecords();
+  });
+  document.getElementById('dsRecordList').addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('button[data-act]') : null;
+    if (!btn) return;
+    var id = btn.getAttribute('data-id'), act = btn.getAttribute('data-act'), r = DS_Store.get(id);
+    if (!r) return;
+    if (act === 'del') {
+      if (window.confirm('Delete this saved scan?')) { DS_Store.remove(id); if (dsScanEditingId === id) dsScanEditingId = null; dsScamRenderRecords(); }
+    } else if (act === 'edit') {
+      dsScanEditingId = id;
+      document.getElementById('scamText').value = r.text || '';
+      document.getElementById('scanLabel').value = r.title || '';
+      document.getElementById('scanNotes').value = r.body || '';
+      dsLastScan = { text: r.text, score: r.score, verdict: r.verdict };
+      document.getElementById('scamSaveBox').classList.remove('hidden');
+      document.getElementById('saveScanBtn').textContent = '💾 Update this scan';
+      document.getElementById('scanLabel').focus();
+    }
+  });
+  dsInitAuth(function () { dsScamRenderRecords(); });
+}
+
+</script>
+</body>
+</html>
